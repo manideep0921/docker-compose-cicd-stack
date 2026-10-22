@@ -8,7 +8,8 @@ describe('build info', () => {
   it('keeps "local" for non-CI builds', () => {
     expect(shortSha('local')).toBe('local')
   })
-  it('returns defaults when constants are not injected', () => {
-    expect(buildInfo().sha).toBe('local')
+  it('exposes the injected build sha (or "local" outside CI)', () => {
+    // vite.config.js injects GITHUB_SHA in CI, so the value differs per environment
+    expect(buildInfo().sha).toMatch(/^(local|[0-9a-f]{7,40})$/)
   })
 })
