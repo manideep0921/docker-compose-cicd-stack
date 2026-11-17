@@ -1,0 +1,24 @@
+# Production override:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --wait
+# Runs pre-built registry images (no local build) at a pinned TAG, with log rotation.
+# Requires REGISTRY and TAG in .env, e.g. REGISTRY=ghcr.io/<owner> TAG=<commit-sha>
+x-logging: &logging
+  driver: json-file
+  options: { max-size: "10m", max-file: "5" }
+
+services:
+  migrate:
+    build: !reset null
+    pull_policy: always
+  backend:
+    build: !reset null
+    pull_policy: always
+    environment:
+      GUNICORN_WORKERS: ${GUNICORN_WORKERS:-4}
+    logging: *logging
+  frontend:
+    build: !reset null
+    pull_policy: always
+    logging: *logging
+  db:
+    logging: *logging

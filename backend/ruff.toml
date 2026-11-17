@@ -1,0 +1,11 @@
+target-version = "py312"
+line-length = 110
+extend-exclude = ["notes/migrations"]
+
+[lint]
+select = ["E", "F", "I", "B", "UP", "S"]
+ignore = ["S101"]  # assert is fine in tests
+
+[lint.per-file-ignores]
+"config/settings.py" = ["S105"]  # dev-only default key
+"notes/admin.py" = ["F401"]  # Django app stub
