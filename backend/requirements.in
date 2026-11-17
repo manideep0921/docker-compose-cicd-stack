@@ -8,7 +8,7 @@ asgiref==3.13.0 \
     --hash=sha256:034cc8cbf72d00553b4be256703ac545120b4e50af13b49dec99da899aeeecb4 \
     --hash=sha256:f9596a2434512686473d50f96ff6207fbba49ae1a785dfac614df4aeb085674d
     # via django
-django==6.0.10 \
+django==6.1.3 \
     --hash=sha256:2a6fe22f319d71fd0ea1e70cded76c6449225cb9903234f8992ee3d21eded5e8 \
     --hash=sha256:6005d030df924f85088454c18bd35dcf082b058aa355ad3df520d8de9aef9f41
     # via -r requirements.in
