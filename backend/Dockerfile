@@ -5,7 +5,7 @@ WORKDIR /app
 # Packages are intentionally unpinned: pinned Debian versions disappear from the
 # mirrors on security updates and would break rebuilds. The base image tag is the pin.
 # hadolint ignore=DL3008
-RUN apt-get update && apt-get install -y --no-install-recommends libpq5 curl \
+RUN apt-get update && apt-get install -y --no-install-recommends libpq5 curl zlib1g \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
