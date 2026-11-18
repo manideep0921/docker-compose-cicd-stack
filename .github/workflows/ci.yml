@@ -86,6 +86,7 @@ jobs:
           DB_NAME: notes
           DB_USER: notes
           DB_PASSWORD: ci
+          DJANGO_SECRET_KEY: ci-only-not-a-secret
         run: |
           python manage.py check
           python manage.py makemigrations --check --dry-run
