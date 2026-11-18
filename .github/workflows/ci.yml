@@ -165,7 +165,7 @@ jobs:
 
       # 1. Build locally and scan BEFORE anything is pushed.
       - name: Build image for scanning
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ${{ matrix.context }}
           build-args: ${{ matrix.build-args }}
@@ -185,7 +185,7 @@ jobs:
       - name: Push (main only)
         id: push
         if: github.ref == 'refs/heads/main'
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ${{ matrix.context }}
           build-args: ${{ matrix.build-args }}
